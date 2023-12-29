@@ -44,9 +44,7 @@
                     if (parseInt(res) == 1) {
                         alert("帳號重覆")
                     } else {
-                        $.post('./api/reg.php', user, (res) => {
-                            alert('註冊完成，歡迎加入')
-                        })
+
                     }
                 })
             } else {

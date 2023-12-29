@@ -3,15 +3,15 @@
     <table>
         <tr>
             <td class="col">帳號</td>
-            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="acc" id="acc"></td>
         </tr>
         <tr>
             <td class="col">密碼</td>
-            <td><input type="password" name="" id=""></td>
+            <td><input type="password" name="pw" id="pw"></td>
         </tr>
         <tr>
             <td><input type="submit" value="登入"><input type="reset" value="清除"></td>
-            <td><a href="?do=forget">忘記密碼</a> <a href="?do=reg">註冊帳號</a></td>
+            <td><a href="?do=forget">忘記密碼</a> <a href="?do=reg">尚未註冊</a></td>
         </tr>
     </table>
 </fieldset>
