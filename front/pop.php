@@ -27,13 +27,15 @@
                     </div>
                 </td>
                 <td>
-                    <span id="g<?= $row['id']; ?>"><?= $row['good']; ?></span>個人說<img src="./icon/02B03.jpg" style="width:25px;">
+                    <span><?= $row['good']; ?></span>個人說<img src="./icon/02B03.jpg" style="width:25px;">
                     <?php
                     if (isset($_SESSION['user'])) {
                         if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']]) > 0) {
-                            echo "<a href=''>收回讚</a>";
+                            echo "<a href='Javascript:good({$row['id']})'>收回讚</a>";
+                            //ajax"<a id='n{$row['id']}' href='Javascript:good({$row['id']})'>收回讚</a>";
                         } else {
-                            echo "<a href=''>讚</a>";
+                            echo "<a href='Javascript:good({$row['id']})'>讚</a>";
+                             // ajax"<a id='n{$row['id']}' href='Javascript:good({$row['id']})'>讚</a>";
                         }
                     }
                     ?>
@@ -43,7 +45,7 @@
         }
         ?>
     </table>
-    <div class="ct">
+    <div>
         <?php
         if ($now - 1 > 0) {
             $prev = $now - 1;
@@ -74,4 +76,11 @@
             $("#p" + id).show();
         }
     )
+    function good(news) {
+        $.post("./api/good.php", {
+            news
+        }, () => {
+            location.reload();
+        })
+    }
 </script>
