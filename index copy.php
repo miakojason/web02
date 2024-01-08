@@ -19,8 +19,8 @@
 			position: absolute;
 			display: none;
 			z-index: 9999;
-			padding: 10px;
 			overflow: auto;
+			padding: 10px;
 		}
 	</style>
 </head>
@@ -29,10 +29,10 @@
 
 	<div id="all">
 		<div id="title">
-			<?= date("m月d日 l"); ?>|
+			<?= date("m月d日 l"); ?> |
 			今日瀏覽: <?= $Total->find(['date' => date("Y-m-d")])['total']; ?> |
 			累積瀏覽: <?= $Total->sum('total'); ?>
-			<a href="./index.php" style='float: right'>回首頁</a>
+			<a href="index.php" style='float:right'>回首頁</a>
 		</div>
 		<div id="title2" title='健康促進網-回首頁'>
 			<img src="./icon/02B01.jpg" alt="">
@@ -47,8 +47,9 @@
 			</div>
 			<div class="hal" id="main">
 				<div>
-					<marquee style="width:78%; display:inline-block;">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
-					<span style="width:20%; display:inline-block;">
+					<marquee style="width:80%; display:inline-block;">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
+
+					<span style="width:16%; display:inline-block;">
 						<?php
 						if (!isset($_SESSION['user'])) {
 						?>
@@ -56,12 +57,12 @@
 						<?php
 						} else {
 						?>
-							歡迎,<?= $_SESSION['user']; ?><br>
+							歡迎,<?= $_SESSION['user']; ?>
 							<button onclick="location.href='./api/logout.php'">登出</button>
 							<?php
 							if ($_SESSION['user'] == 'admin') {
 							?>
-								<button onclick="location.href='./back.php'">管理</button>
+								<button onclick="location.href='back.php'">管理</button>
 						<?php
 							}
 						}
@@ -76,6 +77,7 @@
 						} else {
 							include "./front/main.php";
 						}
+
 						?>
 					</div>
 				</div>
